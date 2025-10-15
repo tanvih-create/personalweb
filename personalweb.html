@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<div class="mainheading">
+    
+    <div class="content-wrapper"> 
+         
+        <div class = "text"> 
+            <h2 id="scramble">Hello, I am Tanvi!</h2>
+            <h5 id="scramble">(pronounced thun-vee)</h4>
+        </div>
+       
+    
+        <div class="question-bubble" id="questionBubble">
+            <svg viewBox="14 10 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bubble circle -->
+                <circle cx="50" cy="50" r="35" 
+                        fill="none" 
+                        stroke="white" 
+                        stroke-width="3"/>
+                
+                <!-- Question mark -->
+                <g class="question-mark">
+                    <path d="M42 35 Q42 28, 50 28 Q58 28, 58 35 Q58 42, 50 45 L50 55" 
+                        fill="none" 
+                        stroke="white" 
+                        stroke-width="3.5"
+                        stroke-linecap="round"/>
+                    <circle cx="50" cy="65" r="3.5" fill="white"/>
+                </g>
+            </svg>
+        </div>
+    </div>  
+  
+</div>
+
+<div class="blue-screen" id="blueScreen">
+        <div class="rain-container" id="rainContainer"></div>
+        <canvas class="lightning-canvas" id="lightningCanvas"></canvas>
+</div>
+
+<script src="script.js"></script>  
+
+
+</body>
+
+</html

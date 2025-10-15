@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default cursor */
+}
+/* body {
+        ;
+
+} */
+
+.cursor-glow {
+    width: 50px;
+    height: 50px;
+    border-radius: 80%;
+    background: radial-gradient(circle, rgba(143, 102, 166, 0.8) 0%, rgba(141, 71, 198, 0.954) 50%, transparent 70%);
+    position: fixed;
+    pointer-events: none; /* Don't block clicks */
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+.mainheading{
+
+    background: linear-gradient(80deg, #780000 0%, #db4750 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;      /* Vertical centering */
+    justify-content: center;  /* Horizontal centering */
+    transition: background 1s ease;    
+    overflow: hidden;
+ 
+}
+
+.content-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.text{
+    color:#ffffff;        /* White text color */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 4px;
+    line-height: 1.2;    /* Space between lines (when text wraps) */
+    text-align: center;   /* Align text to the right edge */
+}
+
+.mepic {
+  width: 250px; /* adjust to your liking */
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+#container {
+    text-align: center;  /* Center text within the container */
+    display: flex;       /* Use flexbox for horizontal layout */
+    align-items: center; /* Vertically align text and icon */
+    gap: 40px;          /* Space between text and icon */
+    
+    /* Smooth fade transition for when we switch to blue mode */
+    transition: opacity 0.8s ease;
+}
+
+.question-bubble {
+    position: absolute;
+    bottom: -15px;
+    right: -70px;
+    width: 60px;
+    height: 60px;
+    animation: bob 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.question-bubble:hover {
+    transform: scale(1.15);
+}
+
+.question-bubble svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Bobbing animation */
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Blue screen overlay */
+.blue-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    z-index: 100;
+    pointer-events: none;
+    
+    /* Start as a small circle at the question mark position */
+    clip-path: circle(0% at var(--click-x, 50%) var(--click-y, 50%));
+    transition: clip-path 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blue-screen.active {
+    clip-path: circle(150% at var(--click-x, 50%) var(--click-y, 50%));
+    pointer-events: auto;
+}
+
+/* Rain container */
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.raindrop {
+    position: absolute;
+    width: 2px;
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1));
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0.2;
+    }
+}
+
+/* Lightning canvas */
+.lightning-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Picture styling (if you add it back) */
+.mepic {
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .text h2 {
+        font-size: 2rem;
+    }
+    
+    .question-bubble {
+        width: 50px;
+        height: 50px;
+        right: -60px;
+    }
+}
